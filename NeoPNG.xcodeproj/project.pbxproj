@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B565D08C1AB1BE66008CE355 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D08B1AB1BE66008CE355 /* AppDelegate.m */; };
+		B565D08E1AB1BE66008CE355 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D08D1AB1BE66008CE355 /* main.m */; };
+		B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B565D08F1AB1BE66008CE355 /* Images.xcassets */; };
+		B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B565D0911AB1BE66008CE355 /* MainMenu.xib */; };
+		B565D09F1AB1BE66008CE355 /* NeoPNGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B565D0991AB1BE66008CE355 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B565D07D1AB1BE66008CE355 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B565D0841AB1BE66008CE355;
+			remoteInfo = NeoPNG;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B565D0851AB1BE66008CE355 /* NeoPNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoPNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B565D0891AB1BE66008CE355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B565D08A1AB1BE66008CE355 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B565D08B1AB1BE66008CE355 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B565D08D1AB1BE66008CE355 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B565D08F1AB1BE66008CE355 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B565D0921AB1BE66008CE355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B565D0981AB1BE66008CE355 /* NeoPNGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeoPNGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B565D09D1AB1BE66008CE355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeoPNGTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B565D0821AB1BE66008CE355 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B565D0951AB1BE66008CE355 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B565D07C1AB1BE66008CE355 = {
+			isa = PBXGroup;
+			children = (
+				B565D0871AB1BE66008CE355 /* NeoPNG */,
+				B565D09B1AB1BE66008CE355 /* NeoPNGTests */,
+				B565D0861AB1BE66008CE355 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B565D0861AB1BE66008CE355 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B565D0851AB1BE66008CE355 /* NeoPNG.app */,
+				B565D0981AB1BE66008CE355 /* NeoPNGTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B565D0871AB1BE66008CE355 /* NeoPNG */ = {
+			isa = PBXGroup;
+			children = (
+				B565D08A1AB1BE66008CE355 /* AppDelegate.h */,
+				B565D08B1AB1BE66008CE355 /* AppDelegate.m */,
+				B565D08F1AB1BE66008CE355 /* Images.xcassets */,
+				B565D0911AB1BE66008CE355 /* MainMenu.xib */,
+				B565D0881AB1BE66008CE355 /* Supporting Files */,
+			);
+			path = NeoPNG;
+			sourceTree = "<group>";
+		};
+		B565D0881AB1BE66008CE355 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B565D0891AB1BE66008CE355 /* Info.plist */,
+				B565D08D1AB1BE66008CE355 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B565D09B1AB1BE66008CE355 /* NeoPNGTests */ = {
+			isa = PBXGroup;
+			children = (
+				B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */,
+				B565D09C1AB1BE66008CE355 /* Supporting Files */,
+			);
+			path = NeoPNGTests;
+			sourceTree = "<group>";
+		};
+		B565D09C1AB1BE66008CE355 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B565D09D1AB1BE66008CE355 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B565D0841AB1BE66008CE355 /* NeoPNG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B565D0A21AB1BE66008CE355 /* Build configuration list for PBXNativeTarget "NeoPNG" */;
+			buildPhases = (
+				B565D0811AB1BE66008CE355 /* Sources */,
+				B565D0821AB1BE66008CE355 /* Frameworks */,
+				B565D0831AB1BE66008CE355 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeoPNG;
+			productName = NeoPNG;
+			productReference = B565D0851AB1BE66008CE355 /* NeoPNG.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B565D0971AB1BE66008CE355 /* NeoPNGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B565D0A51AB1BE66008CE355 /* Build configuration list for PBXNativeTarget "NeoPNGTests" */;
+			buildPhases = (
+				B565D0941AB1BE66008CE355 /* Sources */,
+				B565D0951AB1BE66008CE355 /* Frameworks */,
+				B565D0961AB1BE66008CE355 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B565D09A1AB1BE66008CE355 /* PBXTargetDependency */,
+			);
+			name = NeoPNGTests;
+			productName = NeoPNGTests;
+			productReference = B565D0981AB1BE66008CE355 /* NeoPNGTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B565D07D1AB1BE66008CE355 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Neo He";
+				TargetAttributes = {
+					B565D0841AB1BE66008CE355 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					B565D0971AB1BE66008CE355 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = B565D0841AB1BE66008CE355;
+					};
+				};
+			};
+			buildConfigurationList = B565D0801AB1BE66008CE355 /* Build configuration list for PBXProject "NeoPNG" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B565D07C1AB1BE66008CE355;
+			productRefGroup = B565D0861AB1BE66008CE355 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B565D0841AB1BE66008CE355 /* NeoPNG */,
+				B565D0971AB1BE66008CE355 /* NeoPNGTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B565D0831AB1BE66008CE355 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */,
+				B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B565D0961AB1BE66008CE355 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B565D0811AB1BE66008CE355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B565D08E1AB1BE66008CE355 /* main.m in Sources */,
+				B565D08C1AB1BE66008CE355 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B565D0941AB1BE66008CE355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B565D09F1AB1BE66008CE355 /* NeoPNGTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B565D09A1AB1BE66008CE355 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B565D0841AB1BE66008CE355 /* NeoPNG */;
+			targetProxy = B565D0991AB1BE66008CE355 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B565D0911AB1BE66008CE355 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B565D0921AB1BE66008CE355 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B565D0A01AB1BE66008CE355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B565D0A11AB1BE66008CE355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B565D0A31AB1BE66008CE355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NeoPNG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B565D0A41AB1BE66008CE355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NeoPNG/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B565D0A61AB1BE66008CE355 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NeoPNGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoPNG.app/Contents/MacOS/NeoPNG";
+			};
+			name = Debug;
+		};
+		B565D0A71AB1BE66008CE355 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NeoPNGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoPNG.app/Contents/MacOS/NeoPNG";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B565D0801AB1BE66008CE355 /* Build configuration list for PBXProject "NeoPNG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B565D0A01AB1BE66008CE355 /* Debug */,
+				B565D0A11AB1BE66008CE355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B565D0A21AB1BE66008CE355 /* Build configuration list for PBXNativeTarget "NeoPNG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B565D0A31AB1BE66008CE355 /* Debug */,
+				B565D0A41AB1BE66008CE355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B565D0A51AB1BE66008CE355 /* Build configuration list for PBXNativeTarget "NeoPNGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B565D0A61AB1BE66008CE355 /* Debug */,
+				B565D0A71AB1BE66008CE355 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B565D07D1AB1BE66008CE355 /* Project object */;
+}
