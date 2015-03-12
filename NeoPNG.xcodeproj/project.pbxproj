@@ -12,6 +12,12 @@
 		B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B565D08F1AB1BE66008CE355 /* Images.xcassets */; };
 		B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B565D0911AB1BE66008CE355 /* MainMenu.xib */; };
 		B565D09F1AB1BE66008CE355 /* NeoPNGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */; };
+		B565D0AC1AB1BFD3008CE355 /* NPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */; };
+		B565D0B01AB1C837008CE355 /* NPImageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0AF1AB1C837008CE355 /* NPImageWrapper.m */; };
+		B565D0B21AB1E064008CE355 /* pngquant in Resources */ = {isa = PBXBuildFile; fileRef = B565D0B11AB1E064008CE355 /* pngquant */; };
+		B565D0B51AB1EDBB008CE355 /* NPSizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0B41AB1EDBB008CE355 /* NPSizeFormatter.m */; };
+		B565D0B81AB1F86F008CE355 /* NPImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0B71AB1F86F008CE355 /* NPImagesController.m */; };
+		B565D0BB1AB1FBDE008CE355 /* NPImagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,17 @@
 		B565D0981AB1BE66008CE355 /* NeoPNGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeoPNGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B565D09D1AB1BE66008CE355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeoPNGTests.m; sourceTree = "<group>"; };
+		B565D0AA1AB1BFD3008CE355 /* NPWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPWindowController.h; sourceTree = "<group>"; };
+		B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPWindowController.m; sourceTree = "<group>"; };
+		B565D0AE1AB1C837008CE355 /* NPImageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImageWrapper.h; sourceTree = "<group>"; };
+		B565D0AF1AB1C837008CE355 /* NPImageWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImageWrapper.m; sourceTree = "<group>"; };
+		B565D0B11AB1E064008CE355 /* pngquant */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngquant; sourceTree = "<group>"; };
+		B565D0B31AB1EDBB008CE355 /* NPSizeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPSizeFormatter.h; sourceTree = "<group>"; };
+		B565D0B41AB1EDBB008CE355 /* NPSizeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPSizeFormatter.m; sourceTree = "<group>"; };
+		B565D0B61AB1F86F008CE355 /* NPImagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImagesController.h; sourceTree = "<group>"; };
+		B565D0B71AB1F86F008CE355 /* NPImagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImagesController.m; sourceTree = "<group>"; };
+		B565D0B91AB1FBDE008CE355 /* NPImagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImagesTableView.h; sourceTree = "<group>"; };
+		B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImagesTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +93,14 @@
 		B565D0871AB1BE66008CE355 /* NeoPNG */ = {
 			isa = PBXGroup;
 			children = (
+				B565D0AD1AB1C823008CE355 /* Model */,
+				B565D0A91AB1BFB4008CE355 /* View */,
+				B565D0A81AB1BFAC008CE355 /* Controller */,
 				B565D08A1AB1BE66008CE355 /* AppDelegate.h */,
 				B565D08B1AB1BE66008CE355 /* AppDelegate.m */,
 				B565D08F1AB1BE66008CE355 /* Images.xcassets */,
 				B565D0911AB1BE66008CE355 /* MainMenu.xib */,
+				B565D0B11AB1E064008CE355 /* pngquant */,
 				B565D0881AB1BE66008CE355 /* Supporting Files */,
 			);
 			path = NeoPNG;
@@ -109,6 +130,37 @@
 				B565D09D1AB1BE66008CE355 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B565D0A81AB1BFAC008CE355 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B565D0AA1AB1BFD3008CE355 /* NPWindowController.h */,
+				B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */,
+				B565D0B31AB1EDBB008CE355 /* NPSizeFormatter.h */,
+				B565D0B41AB1EDBB008CE355 /* NPSizeFormatter.m */,
+				B565D0B61AB1F86F008CE355 /* NPImagesController.h */,
+				B565D0B71AB1F86F008CE355 /* NPImagesController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B565D0A91AB1BFB4008CE355 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B565D0B91AB1FBDE008CE355 /* NPImagesTableView.h */,
+				B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B565D0AD1AB1C823008CE355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B565D0AE1AB1C837008CE355 /* NPImageWrapper.h */,
+				B565D0AF1AB1C837008CE355 /* NPImageWrapper.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B565D0B21AB1E064008CE355 /* pngquant in Resources */,
 				B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */,
 				B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */,
 			);
@@ -210,8 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B565D0B51AB1EDBB008CE355 /* NPSizeFormatter.m in Sources */,
+				B565D0AC1AB1BFD3008CE355 /* NPWindowController.m in Sources */,
+				B565D0B01AB1C837008CE355 /* NPImageWrapper.m in Sources */,
 				B565D08E1AB1BE66008CE355 /* main.m in Sources */,
 				B565D08C1AB1BE66008CE355 /* AppDelegate.m in Sources */,
+				B565D0B81AB1F86F008CE355 /* NPImagesController.m in Sources */,
+				B565D0BB1AB1FBDE008CE355 /* NPImagesTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
