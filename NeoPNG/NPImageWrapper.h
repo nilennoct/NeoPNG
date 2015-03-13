@@ -24,4 +24,6 @@
 
 - (instancetype)initWithPath:(NSString *)path;
 
+- (void)startTask;
+
 @end

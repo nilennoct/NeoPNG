@@ -9,7 +9,34 @@
 #import "NPImagesController.h"
 #import "NPImageWrapper.h"
 
-@implementation NPImagesController
+@implementation NPImagesController {
+    NSMutableArray *_tStorage;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    if (self = [super initWithCoder:coder]) {
+        _tStorage = [NSMutableArray array];
+    }
+
+    return self;
+}
+
+- (void)pushObject:(id)object {
+    if (object != nil && [self.arrangedObjects indexOfObject:object] == NSNotFound) {
+        [_tStorage addObject:object];
+    }
+}
+
+- (void)commitChanges {
+    if ([_tStorage count] > 0) {
+        [_tStorage enumerateObjectsUsingBlock:^(NPImageWrapper *obj, NSUInteger idx, BOOL *stop) {
+            [obj startTask];
+        }];
+
+        [self addObjects:_tStorage];
+        [_tStorage removeAllObjects];
+    }
+}
 
 - (IBAction)preview:(id)sender {
     NSButton *button = sender;
@@ -28,19 +55,16 @@
 
     if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-        NSMutableArray *images = [NSMutableArray array];
+
         for (NSString *path in files) {
             if ([[path pathExtension] isEqualToString:@"png"]) {
                 NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:path];
-                if (image != nil && [self.arrangedObjects indexOfObject:image] == NSNotFound) {
-                    [images addObject:image];
-                }
+                [self pushObject:image];
+
             }
         }
 
-        if ([images count] > 0) {
-            [self addObjects:images];
-        }
+        [self commitChanges];
     }
 
     return YES;

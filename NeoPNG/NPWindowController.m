@@ -36,15 +36,12 @@
         if (result == NSFileHandlingPanelOKButton) {
             NSArray *URLs = [panel URLs];
 
-            NSMutableArray *images = [NSMutableArray array];
             for (NSURL *URL in URLs) {
                 NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:URL.path];
-                if (image != nil && [self.imagesController.arrangedObjects indexOfObject:image] == NSNotFound) {
-                    [images addObject:image];
-                }
+                [self.imagesController pushObject:image];
             }
 
-            [self.imagesController addObjects:images];
+            [self.imagesController commitChanges];
         }
     }];
 }

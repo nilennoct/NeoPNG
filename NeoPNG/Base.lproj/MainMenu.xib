@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -683,10 +683,11 @@
             </items>
         </menu>
         <window title="NeoPNG" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="240"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <value key="minSize" type="size" width="480" height="240"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -698,13 +699,12 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="32" viewBased="YES" id="cGQ-vc-Cqg" customClass="NPImagesTableView">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="134"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn width="475" minWidth="40" maxWidth="1000" id="9y0-sk-z9g">
+                                        <tableColumn width="478" minWidth="40" maxWidth="1000" id="9y0-sk-z9g">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -732,8 +732,8 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="ssO-pl-azJ" name="toolTip" keyPath="objectValue.filename" id="RpY-zu-0p3"/>
                                                                 <binding destination="ssO-pl-azJ" name="value" keyPath="objectValue.filename" id="Jcn-Mn-NdO"/>
+                                                                <binding destination="ssO-pl-azJ" name="toolTip" keyPath="objectValue.filename" id="RpY-zu-0p3"/>
                                                             </connections>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="12F-OT-GPm">
@@ -787,7 +787,7 @@
                                                             </connections>
                                                         </textField>
                                                         <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="NRx-N8-lwA">
-                                                            <rect key="frame" x="449" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="452" y="8" width="16" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="2i6-fy-DCq"/>
                                                                 <constraint firstAttribute="width" constant="16" id="uZj-Fb-ZV0"/>
@@ -801,7 +801,7 @@
                                                             </connections>
                                                         </progressIndicator>
                                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="E2k-ZD-ULw">
-                                                            <rect key="frame" x="423" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="426" y="8" width="16" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="Qbv-y3-XGw"/>
                                                                 <constraint firstAttribute="height" constant="16" id="wPq-9n-nT7"/>
@@ -855,12 +855,28 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-yn-VHo" customClass="NPDragView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVu-vc-3Jx">
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NPDropImage" id="p67-QV-nAF"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="mVu-vc-3Jx" secondAttribute="centerY" id="9Ap-HA-SuB"/>
+                            <constraint firstAttribute="centerX" secondItem="mVu-vc-3Jx" secondAttribute="centerX" id="M0x-1t-s40"/>
+                        </constraints>
+                    </customView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="eVQ-Ch-yec" secondAttribute="trailing" id="96L-b6-6iM"/>
+                    <constraint firstAttribute="trailing" secondItem="aPZ-yn-VHo" secondAttribute="trailing" id="L5r-cK-C6I"/>
+                    <constraint firstItem="aPZ-yn-VHo" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="L6T-GX-SOt"/>
                     <constraint firstAttribute="bottom" secondItem="eVQ-Ch-yec" secondAttribute="bottom" id="NvQ-qw-kpC"/>
                     <constraint firstItem="eVQ-Ch-yec" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="fs6-ZJ-Cfs"/>
                     <constraint firstItem="eVQ-Ch-yec" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="iwW-sg-1Do"/>
+                    <constraint firstAttribute="bottom" secondItem="aPZ-yn-VHo" secondAttribute="bottom" id="kWF-Xc-b67"/>
+                    <constraint firstItem="aPZ-yn-VHo" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="o9E-Yn-wiq"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="1D00887C-83A4-4E70-960C-E029705D60F3" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="Eoq-tb-dYd">
@@ -926,6 +942,7 @@
         </window>
     </objects>
     <resources>
+        <image name="NPDropImage" width="240" height="240"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>

@@ -21,8 +21,6 @@
         _path = path;
         _filename = [_path lastPathComponent];
         _compressed = NO;
-
-        [self startTask];
     }
 
     return self;
@@ -37,7 +35,7 @@
 
     _task = [[NSTask alloc] init];
     _task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
-    _task.arguments = @[@"--ext", ext, @"--", _path];
+    _task.arguments = @[@"--force", @"--skip-if-larger", @"--quality", @"65-80", @"--ext", ext, @"--", _path];
 
     dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(taskQueue, ^{

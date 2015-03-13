@@ -10,6 +10,9 @@
 
 @interface NPImagesController : NSArrayController <NSTableViewDelegate, NSTableViewDataSource>
 
+- (void)pushObject:(id)object;
+- (void)commitChanges;
+
 - (IBAction)preview:(id)sender;
 
 @end

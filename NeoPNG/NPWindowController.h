@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NPImagesController.h"
 #import "NPImagesTableView.h"
 
 @interface NPWindowController : NSWindowController
 
-@property (weak) IBOutlet NSArrayController *imagesController;
+@property (weak) IBOutlet NPImagesController *imagesController;
 @property (weak) IBOutlet NPImagesTableView *imagesTableView;
 
 - (IBAction)addFiles:(id)sender;
