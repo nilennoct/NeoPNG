@@ -17,8 +17,10 @@
 
 - (void)awakeFromNib {
     self.window.titleVisibility = NSWindowTitleHidden;
-    [self.imagesTableView registerForDraggedTypes:@[(NSString *)kUTTypeFileURL]];
+    self.window.movableByWindowBackground = YES;
+//    [self.dragView registerForDraggedTypes:@[(NSString *)kUTTypeFileURL]];
 }
+
 
 - (void)windowDidLoad {
     [super windowDidLoad];

@@ -7,7 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NPImagesController.h"
 
-@interface NPDragView : NSVisualEffectView
+@interface NPDragView : NSView {
+    __weak IBOutlet NPImagesController *_imagesController;
+}
+
+@property (weak) IBOutlet NSImageView *imageView;
+
+@property BOOL highlighted;
+
+
 
 @end

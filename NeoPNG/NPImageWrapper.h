@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Neo He. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-@interface NPImageWrapper : NSObject
+@interface NPImageWrapper : NSObject <NSPasteboardWriting>
 
 @property NSString *path;
 
@@ -19,6 +19,9 @@
 @property (readonly) NSNumber *reduced;
 
 @property (readonly) BOOL compressed;
+
+@property (readonly) NSString *outputPath;
+@property (readonly) NSURL *outputURL;
 
 @property NSTask *task;
 

@@ -7,10 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "NPImagesController.h"
 
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+
+@property (weak) IBOutlet NPImagesController *imagesController;
+
 @end
 
 @implementation AppDelegate
@@ -25,6 +29,23 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return YES;
+}
+//
+//- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+//    NSLog(@"%@", filename);
+//    return YES;
+//}
+
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+    NSLog(@"%@", filenames);
+    NSInteger numberOfImagesToAdd = [_imagesController dropFiles:filenames];
+
+    if (numberOfImagesToAdd > 0) {
+        [_imagesController commitChanges];
+        [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
+    }
+
+    [sender replyToOpenOrPrint:NSApplicationDelegateReplyFailure];
 }
 
 @end

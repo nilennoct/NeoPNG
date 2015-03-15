@@ -8,6 +8,9 @@
 
 #import "NPImageWrapper.h"
 
+const static NSString *prefix = @"NP-";
+const static NSString *suffix = @"";
+
 @implementation NPImageWrapper
 
 - (instancetype)initWithPath:(NSString *)path {
@@ -30,12 +33,12 @@
     NSPipe *pipe = [NSPipe pipe];
     NSFileHandle *file = pipe.fileHandleForReading;
 
-    NSString *ext = @".out.png";
-    NSString *outputPath = [NSString stringWithFormat:@"%@%@", [_path stringByDeletingPathExtension], ext];
+//    NSString *ext = @".out.png";
+    NSString *outputPath = self.outputPath;
 
     _task = [[NSTask alloc] init];
     _task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
-    _task.arguments = @[@"--force", @"--skip-if-larger", @"--quality", @"65-80", @"--ext", ext, @"--", _path];
+    _task.arguments = @[@"--force", @"--quality", @"65-80", @"--out", outputPath, @"--", _path];
 
     dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     dispatch_async(taskQueue, ^{
@@ -77,6 +80,33 @@
     }
 
     return @((_compressedSize - _originalSize) * 1.0 / _originalSize);
+}
+
+- (NSString *)outputPath {
+    NSString *ouputFilename = [[NSString stringWithFormat:@"%@%@%@", prefix, [_filename stringByDeletingPathExtension], suffix] stringByAppendingPathExtension:@"png"];
+    NSString *outputPath = [[_path stringByDeletingLastPathComponent] stringByAppendingPathComponent:ouputFilename];
+
+    _outputURL = [NSURL fileURLWithPath:outputPath];
+
+    return outputPath;
+}
+
+#pragma mark NSPasteboardWriting
+
+- (NSPasteboardWritingOptions)writingOptionsForType:(NSString *)type pasteboard:(NSPasteboard *)pasteboard {
+    return [self.outputURL writingOptionsForType:type pasteboard:pasteboard];
+}
+
+- (NSArray *)writableTypesForPasteboard:(NSPasteboard *)pasteboard {
+    return [self.outputURL writableTypesForPasteboard:pasteboard];
+}
+
+- (id)pasteboardPropertyListForType:(NSString *)type {
+    if (!self.compressed) {
+        return nil;
+    }
+
+    return [self.outputURL pasteboardPropertyListForType:type];
 }
 
 - (BOOL)isEqual:(NPImageWrapper *)object {

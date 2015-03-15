@@ -7,11 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NPImagesTableView.h"
 
 @interface NPImagesController : NSArrayController <NSTableViewDelegate, NSTableViewDataSource>
 
+@property (weak) IBOutlet NPImagesTableView *imagesTableView;
+
+@property (readonly, getter=isEmpty) BOOL empty;
+
+- (NSInteger)dropFiles:(NSArray *)files;
 - (void)pushObject:(id)object;
-- (void)commitChanges;
+- (NSInteger)commitChanges;
+- (void)revertChanges;
 
 - (IBAction)preview:(id)sender;
 
