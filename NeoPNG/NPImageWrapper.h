@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NPCompressOperation.h"
 
-@interface NPImageWrapper : NSObject <NSPasteboardWriting>
+@interface NPImageWrapper : NSObject <NSPasteboardWriting> {
+    NPCompressOperation *_operation;
+}
 
 @property NSString *path;
 
@@ -23,12 +26,13 @@
 @property (readonly) NSString *outputPath;
 @property (readonly) NSURL *outputURL;
 
-//@property (readonly) NPCompressOperation *operation;
+@property (readonly) NPCompressOperation *operation;
 
 @property NSTask *task;
 
 - (instancetype)initWithPath:(NSString *)path;
 
 - (void)startTask;
+- (void)taskDidFinished:(NSDictionary *)userInfo;
 
 @end

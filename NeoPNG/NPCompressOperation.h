@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NPImageWrapper.h"
+
+@class NPImageWrapper;
 
 @interface NPCompressOperation : NSOperation
 

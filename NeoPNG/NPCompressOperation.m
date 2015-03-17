@@ -7,6 +7,7 @@
 //
 
 #import "NPCompressOperation.h"
+#import "NPImageWrapper.h"
 
 @implementation NPCompressOperation
 
@@ -26,8 +27,8 @@
     return self;
 }
 
-- (void)start {
-//    @autoreleasepool {
+- (void)main {
+    @autoreleasepool {
         NSString *outputPath = _image.outputPath;
 
         NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
@@ -35,26 +36,24 @@
         NSInteger qualityMax = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMax"] integerValue];
         NSString *quality = [NSString stringWithFormat:@"%ld-%ld", qualityMin, qualityMax];
 
-        NSTask *task = [[NSTask alloc] init];
+        NSTask *task = [NSTask new];
         task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
         task.arguments = @[@"--force", @"--quality", quality, @"--out", outputPath, @"--", _image.path];
 
         [task launch];
-//        [task waitUntilExit];
+        [task waitUntilExit];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
         NSError *error;
-        _image.compressedSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outputPath error:&error].fileSize;
-        if (error != nil) {
-            NSLog(@"Error when reading compressed image size, %@", error);
+        NSInteger compressedSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outputPath error:&error].fileSize;
+
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+        userInfo[@"size"] = @(compressedSize);
+        if (error) {
+            userInfo[@"error"] = error;
         }
 
-//        [_image willChangeValueForKey:@"reduced"];
-        _image.compressed = YES;
-//        [_image didChangeValueForKey:@"reduced"];
-
-        });
-//    }
+        [_image performSelectorOnMainThread:@selector(taskDidFinished:) withObject:userInfo waitUntilDone:YES];
+    }
 }
 
 @end

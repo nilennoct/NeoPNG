@@ -70,15 +70,24 @@ static const NSString *defaultPrefix = @"out/";
     }
 }
 
-//- (void)setCompressed:(BOOL)compressed {
-//    [self willChangeValueForKey:@"compressed"];
-//    [self willChangeValueForKey:@"reduced"];
-//
-//    _compressed = compressed;
-//
-//    [self didChangeValueForKey:@"compressed"];
-//    [self didChangeValueForKey:@"reduced"];
-//}
+- (void)taskDidFinished:(NSDictionary *)userInfo {
+    [self willChangeValueForKey:@"reduced"];
+    if (userInfo[@"error"]) {
+        NSLog(@"Error when execute compress task, filename: %@, error info: %@", _filename, userInfo[@"error"]);
+        return;
+    }
+    self.compressedSize = [(NSNumber *)userInfo[@"size"] integerValue];
+    self.compressed = YES;
+    [self didChangeValueForKey:@"reduced"];
+}
+
+- (NPCompressOperation *)operation {
+    if (_operation == nil) {
+        _operation = [NPCompressOperation operationWithImage:self];
+    }
+
+    return _operation;
+}
 
 - (NSNumber *)reduced {
     if (!_compressed) {
