@@ -10,15 +10,14 @@
 #import "NPImagesController.h"
 #import "NPImagesTableView.h"
 #import "NPDragView.h"
+#import "NPPreferenceWindowController.h"
 
 @interface NPWindowController : NSWindowController
 
 @property (weak) IBOutlet NPImagesController *imagesController;
 @property (weak) IBOutlet NPImagesTableView *imagesTableView;
-@property (weak) IBOutlet NPDragView *dragView;
+@property (weak) IBOutlet NPPreferenceWindowController *preferenceWindowController;
 
-- (IBAction)addFiles:(id)sender;
-- (IBAction)removeFiles:(id)sender;
-- (IBAction)clearFiles:(id)sender;
+- (IBAction)openPreference:(id)sender;
 
 @end

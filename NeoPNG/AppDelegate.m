@@ -21,28 +21,28 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    NSDictionary *defaults = @{@"Overwrite": @(NO), @"Prefix": @"", @"Suffix": @"", @"QualityMin": @(65), @"QualityMax": @(80)};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
+    if (!flag) {
+        [self.window makeKeyAndOrderFront:self];
+    }
     return YES;
 }
-//
-//- (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
-//    NSLog(@"%@", filename);
-//    return YES;
-//}
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
-    NSLog(@"%@", filenames);
     NSInteger numberOfImagesToAdd = [_imagesController dropFiles:filenames];
 
     if (numberOfImagesToAdd > 0) {
         [_imagesController commitChanges];
         [sender replyToOpenOrPrint:NSApplicationDelegateReplySuccess];
+        [self.window makeKeyAndOrderFront:self];
     }
 
     [sender replyToOpenOrPrint:NSApplicationDelegateReplyFailure];

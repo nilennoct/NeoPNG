@@ -14,12 +14,14 @@
 @property (weak) IBOutlet NPImagesTableView *imagesTableView;
 
 @property (readonly, getter=isEmpty) BOOL empty;
+@property NSString *test;
 
 - (NSInteger)dropFiles:(NSArray *)files;
 - (void)pushObject:(id)object;
 - (NSInteger)commitChanges;
 - (void)revertChanges;
 
-- (IBAction)preview:(id)sender;
+- (IBAction)removeWithFile:(id)sender;
+- (IBAction)clear:(id)sender;
 
 @end

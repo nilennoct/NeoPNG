@@ -8,8 +8,7 @@
 
 #import "NPImageWrapper.h"
 
-const static NSString *prefix = @"NP-";
-const static NSString *suffix = @"";
+static const NSString *defaultPrefix = @"out/";
 
 @implementation NPImageWrapper
 
@@ -30,49 +29,56 @@ const static NSString *suffix = @"";
 }
 
 - (void)startTask {
-    NSPipe *pipe = [NSPipe pipe];
-    NSFileHandle *file = pipe.fileHandleForReading;
+    @autoreleasepool {
+            //    NSPipe *pipe = [NSPipe pipe];
+            //    NSFileHandle *file = pipe.fileHandleForReading;
 
-//    NSString *ext = @".out.png";
-    NSString *outputPath = self.outputPath;
+            //    NSString *ext = @".out.png";
+        NSString *outputPath = self.outputPath;
 
-    _task = [[NSTask alloc] init];
-    _task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
-    _task.arguments = @[@"--force", @"--quality", @"65-80", @"--out", outputPath, @"--", _path];
+        NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
+        NSInteger qualityMin = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMin"] integerValue];
+        NSInteger qualityMax = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMax"] integerValue];
+        NSString *quality = [NSString stringWithFormat:@"%ld-%ld", qualityMin, qualityMax];
 
-    dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-    dispatch_async(taskQueue, ^{
-        [_task launch];
+        _task = [[NSTask alloc] init];
+        _task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
+        _task.arguments = @[@"--force", @"--quality", quality, @"--out", outputPath, @"--", _path];
 
-        [_task waitUntilExit];
+        dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+        dispatch_async(taskQueue, ^{
+            [_task launch];
 
-        NSData *data = [file readDataToEndOfFile];
-        [file closeFile];
+            [_task waitUntilExit];
 
-        NSLog(@"pngquant %@: %@", _path, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                //        NSData *data = [file readDataToEndOfFile];
+                //        [file closeFile];
 
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error;
-            self.compressedSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outputPath error:&error].fileSize;
-            if (error != nil) {
-                NSLog(@"Error when reading compressed image size, %@", error);
-            }
+                //        NSLog(@"pngquant %@: %@", _path, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-            [self setCompressed:YES];
-
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSError *error;
+                self.compressedSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outputPath error:&error].fileSize;
+                if (error != nil) {
+                    NSLog(@"Error when reading compressed image size, %@", error);
+                }
+                
+                [self setCompressed:YES];
+                
+            });
         });
-    });
+    }
 }
 
-- (void)setCompressed:(BOOL)compressed {
-    [self willChangeValueForKey:@"compressed"];
-    [self willChangeValueForKey:@"reduced"];
-
-    _compressed = compressed;
-
-    [self didChangeValueForKey:@"compressed"];
-    [self didChangeValueForKey:@"reduced"];
-}
+//- (void)setCompressed:(BOOL)compressed {
+//    [self willChangeValueForKey:@"compressed"];
+//    [self willChangeValueForKey:@"reduced"];
+//
+//    _compressed = compressed;
+//
+//    [self didChangeValueForKey:@"compressed"];
+//    [self didChangeValueForKey:@"reduced"];
+//}
 
 - (NSNumber *)reduced {
     if (!_compressed) {
@@ -83,12 +89,60 @@ const static NSString *suffix = @"";
 }
 
 - (NSString *)outputPath {
-    NSString *ouputFilename = [[NSString stringWithFormat:@"%@%@%@", prefix, [_filename stringByDeletingPathExtension], suffix] stringByAppendingPathExtension:@"png"];
-    NSString *outputPath = [[_path stringByDeletingLastPathComponent] stringByAppendingPathComponent:ouputFilename];
+    NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
 
-    _outputURL = [NSURL fileURLWithPath:outputPath];
+    BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
+    if (!overwrite) {
+        NSString *prefix = [defaultsController.values valueForKey:@"Prefix"];
+        NSString *suffix = [defaultsController.values valueForKey:@"Suffix"];
 
-    return outputPath;
+        if (prefix.length == 0 && suffix.length == 0) {
+            prefix = [defaultPrefix copy];
+        }
+
+        if (![self createDirectory:prefix]) {
+            prefix = [prefix stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
+        }
+
+        NSString *ouputFilename = [[NSString stringWithFormat:@"%@%@%@", prefix, [_filename stringByDeletingPathExtension], suffix] stringByAppendingPathExtension:@"png"];
+        NSString *outputPath = [[_path stringByDeletingLastPathComponent] stringByAppendingPathComponent:ouputFilename];
+
+        _outputURL = [NSURL fileURLWithPath:outputPath];
+
+        return outputPath;
+    }
+    else {
+        _outputURL = [NSURL fileURLWithPath:_path];
+
+        return _path;
+    }
+}
+
+- (BOOL)createDirectory:(NSString *)prefix {
+    NSRange range = [prefix rangeOfString:@"/" options:NSBackwardsSearch];
+    if (range.location == NSNotFound) {
+        return YES;
+    }
+
+    prefix = [prefix substringToIndex:range.location];
+    NSString *directoryPath = [[_path stringByDeletingLastPathComponent] stringByAppendingPathComponent:prefix];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    BOOL isDirectory = YES;
+    if (![fileManager fileExistsAtPath:directoryPath isDirectory:&isDirectory]) {
+        NSError *error = nil;
+        if (![fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error]) {
+            NSLog(@"Error when creating output directory");
+            return NO;
+        }
+
+        return YES;
+    }
+    else if (!isDirectory) {
+        return NO;
+    }
+
+    return YES;
 }
 
 #pragma mark NSPasteboardWriting

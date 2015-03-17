@@ -17,7 +17,10 @@
 		B565D0B21AB1E064008CE355 /* pngquant in Resources */ = {isa = PBXBuildFile; fileRef = B565D0B11AB1E064008CE355 /* pngquant */; };
 		B565D0B81AB1F86F008CE355 /* NPImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0B71AB1F86F008CE355 /* NPImagesController.m */; };
 		B565D0BB1AB1FBDE008CE355 /* NPImagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */; };
+		B5E879921AB8305C00E563FA /* NPCompressOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E879911AB8305C00E563FA /* NPCompressOperation.m */; };
 		B5E9740D1AB2ED7000C4525E /* NPDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E9740C1AB2ED7000C4525E /* NPDragView.m */; };
+		B5E9740F1AB66B8A00C4525E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B5E9740E1AB66B8A00C4525E /* Credits.rtf */; };
+		B5E974121AB6A52300C4525E /* NPPreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E974111AB6A52300C4525E /* NPPreferenceWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +53,13 @@
 		B565D0B71AB1F86F008CE355 /* NPImagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImagesController.m; sourceTree = "<group>"; };
 		B565D0B91AB1FBDE008CE355 /* NPImagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImagesTableView.h; sourceTree = "<group>"; };
 		B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImagesTableView.m; sourceTree = "<group>"; };
+		B5E879901AB8305C00E563FA /* NPCompressOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPCompressOperation.h; sourceTree = "<group>"; };
+		B5E879911AB8305C00E563FA /* NPCompressOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPCompressOperation.m; sourceTree = "<group>"; };
 		B5E9740B1AB2ED7000C4525E /* NPDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPDragView.h; sourceTree = "<group>"; };
 		B5E9740C1AB2ED7000C4525E /* NPDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPDragView.m; sourceTree = "<group>"; };
+		B5E9740E1AB66B8A00C4525E /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		B5E974101AB6A52300C4525E /* NPPreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPPreferenceWindowController.h; sourceTree = "<group>"; };
+		B5E974111AB6A52300C4525E /* NPPreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPPreferenceWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 			children = (
 				B565D0891AB1BE66008CE355 /* Info.plist */,
 				B565D08D1AB1BE66008CE355 /* main.m */,
+				B5E9740E1AB66B8A00C4525E /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -139,6 +148,10 @@
 				B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */,
 				B565D0B61AB1F86F008CE355 /* NPImagesController.h */,
 				B565D0B71AB1F86F008CE355 /* NPImagesController.m */,
+				B5E974101AB6A52300C4525E /* NPPreferenceWindowController.h */,
+				B5E974111AB6A52300C4525E /* NPPreferenceWindowController.m */,
+				B5E879901AB8305C00E563FA /* NPCompressOperation.h */,
+				B5E879911AB8305C00E563FA /* NPCompressOperation.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -244,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B565D0B21AB1E064008CE355 /* pngquant in Resources */,
+				B5E9740F1AB66B8A00C4525E /* Credits.rtf in Resources */,
 				B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */,
 				B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */,
 			);
@@ -266,6 +280,8 @@
 				B565D0AC1AB1BFD3008CE355 /* NPWindowController.m in Sources */,
 				B565D0B01AB1C837008CE355 /* NPImageWrapper.m in Sources */,
 				B565D08E1AB1BE66008CE355 /* main.m in Sources */,
+				B5E974121AB6A52300C4525E /* NPPreferenceWindowController.m in Sources */,
+				B5E879921AB8305C00E563FA /* NPCompressOperation.m in Sources */,
 				B565D08C1AB1BE66008CE355 /* AppDelegate.m in Sources */,
 				B5E9740D1AB2ED7000C4525E /* NPDragView.m in Sources */,
 				B565D0B81AB1F86F008CE355 /* NPImagesController.m in Sources */,

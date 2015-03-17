@@ -18,10 +18,12 @@
 
 @property (readonly) NSNumber *reduced;
 
-@property (readonly) BOOL compressed;
+@property BOOL compressed;
 
 @property (readonly) NSString *outputPath;
 @property (readonly) NSURL *outputURL;
+
+//@property (readonly) NPCompressOperation *operation;
 
 @property NSTask *task;
 

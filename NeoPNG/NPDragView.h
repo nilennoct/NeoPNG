@@ -7,11 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NPImagesController.h"
 
-@interface NPDragView : NSView {
-    __weak IBOutlet NPImagesController *_imagesController;
-}
+@interface NPDragView : NSView
 
 @property (weak) IBOutlet NSImageView *imageView;
 

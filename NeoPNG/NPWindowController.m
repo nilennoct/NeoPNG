@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     self.window.titleVisibility = NSWindowTitleHidden;
     self.window.movableByWindowBackground = YES;
-//    [self.dragView registerForDraggedTypes:@[(NSString *)kUTTypeFileURL]];
+    self.windowFrameAutosaveName = @"MainWindow";
 }
 
 
@@ -28,32 +28,9 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-- (IBAction)addFiles:(id)sender {
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    panel.allowsMultipleSelection = YES;
-    panel.canChooseDirectories = NO;
-    panel.allowedFileTypes = @[@"png"];
-
-    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
-            NSArray *URLs = [panel URLs];
-
-            for (NSURL *URL in URLs) {
-                NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:URL.path];
-                [self.imagesController pushObject:image];
-            }
-
-            [self.imagesController commitChanges];
-        }
+- (IBAction)openPreference:(id)sender {
+    [self.window beginSheet:self.preferenceWindowController.window completionHandler:^(NSModalResponse returnCode) {
     }];
-}
-
-- (IBAction)removeFiles:(id)sender {
-    [self.imagesController removeObjectsAtArrangedObjectIndexes:self.imagesController.selectionIndexes];
-}
-
-- (IBAction)clearFiles:(id)sender {
-    [self.imagesController removeObjects:self.imagesController.arrangedObjects];
 }
 
 @end

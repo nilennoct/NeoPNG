@@ -8,14 +8,20 @@
 
 #import "NPImagesController.h"
 #import "NPImageWrapper.h"
+#import "NPCompressOperation.h"
 
 @implementation NPImagesController {
     NSMutableArray *_tStorage;
+
+    NSOperationQueue *_queue;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super initWithCoder:coder]) {
         _tStorage = [NSMutableArray array];
+
+        _queue = [NSOperationQueue new];
+        _queue.maxConcurrentOperationCount = 1;
     }
 
     return self;
@@ -33,10 +39,12 @@
 - (NSInteger)dropFiles:(NSArray *)files {
     _tStorage = [NSMutableArray arrayWithCapacity:[files count]];
 
-    for (NSString *path in files) {
-        if ([[path pathExtension] isEqualToString:@"png"]) {
-            NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:path];
-            [self pushObject:image];
+    @autoreleasepool {
+        for (NSString *path in files) {
+            if ([[path pathExtension] isEqualToString:@"png"]) {
+                NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:path];
+                [self pushObject:image];
+            }
         }
     }
 
@@ -54,7 +62,8 @@
 
     if (count > 0) {
         [_tStorage enumerateObjectsUsingBlock:^(NPImageWrapper *obj, NSUInteger idx, BOOL *stop) {
-            [obj startTask];
+//            [obj startTask];
+            [_queue addOperation:[NPCompressOperation operationWithImage:obj]];
         }];
 
         [self addObjects:_tStorage];
@@ -117,28 +126,70 @@
     return self.arrangedObjects[row];
 }
 
-//- (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
-//
-//    return YES;
-//
-//    NSArray *imagesSelected = [self.arrangedObjects objectsAtIndexes:rowIndexes];
-//    NSMutableArray *filesToDrag = [NSMutableArray arrayWithCapacity:[imagesSelected count]];
-//
-//    for (NPImageWrapper *image in imagesSelected) {
-//        if (YES || image.compressed) {
-//            [filesToDrag addObject:image.outputPath];
-//        }
-//    }
-//
-//    if ([filesToDrag count] > 0) {
-//        [pboard declareTypes:@[NSFilenamesPboardType] owner:nil];
-//        [pboard setPropertyList:filesToDrag forType:NSFilenamesPboardType];
-//
-//        return YES;
-//    }
-//
-//    return NO;
-//}
+- (void)removeWithFile {
+    NSArray *selectedImages = self.selectedObjects;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error = nil;
+    for (NPImageWrapper *image in selectedImages) {
+        [fileManager removeItemAtURL:image.outputURL error:&error];
+        if (error != nil) {
+            NSLog(@"Error when removing image: %@, %@", image.path, error);
+            error = nil;
+        }
+    }
 
+    [self removeObjectsAtArrangedObjectIndexes:self.selectionIndexes];
+}
+
+#pragma mark IBAction
+
+- (IBAction)add:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.allowsMultipleSelection = YES;
+    panel.canChooseDirectories = NO;
+    panel.allowedFileTypes = @[@"png"];
+
+    [panel beginSheetModalForWindow:self.imagesTableView.window completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray *URLs = [panel URLs];
+
+            for (NSURL *URL in URLs) {
+                NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:URL.path];
+                [self pushObject:image];
+            }
+
+            [self commitChanges];
+        }
+    }];
+}
+
+- (IBAction)remove:(id)sender {
+    [self removeObjectsAtArrangedObjectIndexes:self.selectionIndexes];
+}
+
+- (IBAction)removeWithFile:(id)sender {
+    NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
+    BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
+    if (overwrite) {
+        
+
+        NSAlert *alert = [NSAlert new];
+        [alert addButtonWithTitle:@"OK"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:@"Delete these images?"];
+        [alert setInformativeText:@"For overwriting is enabled, your original images will be deleted."];
+        alert.alertStyle = NSCriticalAlertStyle;
+
+        if ([alert runModal] != NSAlertFirstButtonReturn) {
+            return;
+        }
+    }
+
+    [self removeWithFile];
+}
+
+- (IBAction)clear:(id)sender {
+    [self removeObjects:self.arrangedObjects];
+}
 
 @end

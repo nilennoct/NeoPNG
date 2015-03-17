@@ -7,7 +7,14 @@
 //
 
 #import "NPDragView.h"
+#import "NPImagesController.h"
 #import "NPImageWrapper.h"
+
+@interface NPDragView()
+
+@property (weak) IBOutlet NPImagesController *imagesController;
+
+@end
 
 @implementation NPDragView
 
@@ -42,47 +49,7 @@
 
 }
 
-//- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
-//    NSPasteboard *pboard = [sender draggingPasteboard];
-//    if ([pboard.types containsObject:NSFilenamesPboardType]) {
-//        NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-//        NSMutableArray *validFiles = [NSMutableArray array];
-//
-//        for (NSString *path in files) {
-//            if ([[path pathExtension] isEqualToString:@"png"]) {
-//                [validFiles addObject:path];
-//            }
-//        }
-//
-//        if ([validFiles count] > 0) {
-//            [sender setNumberOfValidItemsForDrop:[validFiles count]];
-//            [pboard setPropertyList:[NSArray arrayWithArray:validFiles] forType:NSFilenamesPboardType];
-//            return YES;
-//        }
-//    }
-//
-//    return NO;
-//}
-
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
-//    NSPasteboard *pboard = [sender draggingPasteboard];
-//
-//    if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
-//        NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-//
-//        for (NSString *path in files) {
-//            if ([[path pathExtension] isEqualToString:@"png"]) {
-//                NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:path];
-//                [_imagesController pushObject:image];
-//
-//            }
-//        }
-//
-//        NSInteger numberOfImagesAdded = [_imagesController commitChanges];
-//        if (numberOfImagesAdded == 0) {
-//            return NO;
-//        }
-//    }
     NSInteger numberOfImagesAdded = [_imagesController commitChanges];
     if (numberOfImagesAdded == 0) {
         return NO;
@@ -107,7 +74,6 @@
             [self updateDraggingItemsForDrag:sender];
 
             return NSDragOperationGeneric;
-//            return [sender draggingSourceOperationMask];
         }
     }
 
