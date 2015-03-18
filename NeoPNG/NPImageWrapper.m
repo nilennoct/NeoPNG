@@ -120,7 +120,7 @@ static const NSString *defaultPrefix = @"out/";
             prefix = [defaultPrefix copy];
         }
 
-        if (![self createDirectory:prefix]) {
+        if (![self checkDirectory:prefix]) {
             prefix = [prefix stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
         }
 
@@ -138,7 +138,7 @@ static const NSString *defaultPrefix = @"out/";
     }
 }
 
-- (BOOL)createDirectory:(NSString *)prefix {
+- (BOOL)checkDirectory:(NSString *)prefix {
     NSRange range = [prefix rangeOfString:@"/" options:NSBackwardsSearch];
     if (range.location == NSNotFound) {
         return YES;
@@ -150,15 +150,21 @@ static const NSString *defaultPrefix = @"out/";
 
     BOOL isDirectory = YES;
     if (![fileManager fileExistsAtPath:directoryPath isDirectory:&isDirectory]) {
-        NSError *error = nil;
-        if (![fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error]) {
-            NSLog(@"Error when creating output directory");
-            return NO;
-        }
-
+        [self createDirectory:directoryPath];
         return YES;
     }
-    else if (!isDirectory) {
+
+    if (!isDirectory) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)createDirectory:(NSString *)directoryPath {
+    NSError *error = nil;
+    if (![[NSFileManager defaultManager] createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error]) {
+        NSLog(@"Error when creating output directory, %@", error);
         return NO;
     }
 
