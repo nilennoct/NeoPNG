@@ -42,7 +42,8 @@
 
     @autoreleasepool {
         for (NSString *path in files) {
-            if ([[path pathExtension] isEqualToString:@"png"]) {
+            NSString *extension = [[path pathExtension] lowercaseString];
+            if ([extension isEqualToString:@"png"] || [extension isEqualToString:@"jpg"]) {
                 NPImageWrapper *image = [[NPImageWrapper alloc] initWithPath:path];
                 [self pushObject:image];
             }
@@ -158,7 +159,7 @@
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     panel.allowsMultipleSelection = YES;
     panel.canChooseDirectories = NO;
-    panel.allowedFileTypes = @[@"png"];
+    panel.allowedFileTypes = @[@"png", @"jpg"];
 
     [panel beginSheetModalForWindow:self.imagesTableView.window completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton) {
@@ -182,8 +183,6 @@
     NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
     BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
     if (overwrite) {
-        
-
         NSAlert *alert = [NSAlert new];
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Cancel"];
@@ -201,11 +200,13 @@
 
 - (IBAction)clear:(id)sender {
     [self removeObjects:self.content];
-//    NSLog(@"%lu", [_queue operationCount]);
-//    for (NPCompressOperation *operation in [_queue operations]) {
-//        NSLog(@"%d, %d, %d", operation.executing, operation.cancelled, operation.finished);
-//        [operation cancel];
-//    }
+}
+
+- (IBAction)recompress:(id)sender {
+    NSTableCellView *cellView = (NSTableCellView *)[(NSButton *)sender superview];
+    NPImageWrapper *image = cellView.objectValue;
+    image.compressed = NO;
+    [_queue addOperation:image.operation];
 }
 
 @end

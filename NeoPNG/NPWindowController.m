@@ -19,6 +19,8 @@
     self.window.titleVisibility = NSWindowTitleHidden;
     self.window.movableByWindowBackground = YES;
     self.windowFrameAutosaveName = @"MainWindow";
+    self.window.level = NSFloatingWindowLevel;
+//    self.window.appearance = [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
 }
 
 

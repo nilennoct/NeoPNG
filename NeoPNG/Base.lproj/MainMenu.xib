@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6751"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -326,6 +326,25 @@ CA
                                                                 </binding>
                                                             </connections>
                                                         </progressIndicator>
+                                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="KTY-s9-oSD">
+                                                            <rect key="frame" x="252" y="16" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="1Xh-Em-j1m"/>
+                                                                <constraint firstAttribute="height" constant="16" id="9ji-eE-uBJ"/>
+                                                            </constraints>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRefreshFreestandingTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="laI-NR-6ly">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="recompress:" target="YMF-sT-5NV" id="Dgo-db-8IZ"/>
+                                                                <binding destination="ssO-pl-azJ" name="hidden" keyPath="objectValue.compressed" id="uaz-71-gTJ">
+                                                                    <dictionary key="options">
+                                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="2gS-s8-NRO" firstAttribute="leading" secondItem="vsV-Ji-3ik" secondAttribute="trailing" constant="10" id="94F-rA-Xzx"/>
@@ -334,8 +353,10 @@ CA
                                                         <constraint firstItem="Phu-pj-l50" firstAttribute="leading" secondItem="ssO-pl-azJ" secondAttribute="leading" constant="10" id="KH7-TY-Vc3"/>
                                                         <constraint firstAttribute="centerY" secondItem="Phu-pj-l50" secondAttribute="centerY" id="Kau-KF-dyi"/>
                                                         <constraint firstItem="2gS-s8-NRO" firstAttribute="centerY" secondItem="12F-OT-GPm" secondAttribute="centerY" id="L2z-cR-ffM"/>
+                                                        <constraint firstAttribute="centerY" secondItem="KTY-s9-oSD" secondAttribute="centerY" id="NOy-3Q-hsA"/>
                                                         <constraint firstItem="dVW-Au-4kg" firstAttribute="top" secondItem="ssO-pl-azJ" secondAttribute="top" constant="5" id="NzZ-KT-Far"/>
                                                         <constraint firstAttribute="centerY" secondItem="NRx-N8-lwA" secondAttribute="centerY" id="Y5B-bn-255"/>
+                                                        <constraint firstAttribute="trailing" secondItem="KTY-s9-oSD" secondAttribute="trailing" constant="10" id="YFr-gQ-Y67"/>
                                                         <constraint firstItem="vsV-Ji-3ik" firstAttribute="leading" secondItem="12F-OT-GPm" secondAttribute="trailing" constant="10" id="ZF0-Uo-oT0"/>
                                                         <constraint firstItem="vsV-Ji-3ik" firstAttribute="centerY" secondItem="12F-OT-GPm" secondAttribute="centerY" id="ZNm-co-IsY"/>
                                                         <constraint firstItem="dVW-Au-4kg" firstAttribute="leading" secondItem="Phu-pj-l50" secondAttribute="trailing" constant="5" id="kDf-k4-YsI"/>
@@ -673,6 +694,7 @@ Gw
         <image name="NPDropImage" width="240" height="240"/>
         <image name="NPPreference" width="16" height="16"/>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSStopProgressTemplate" width="11" height="11"/>
     </resources>

@@ -23,5 +23,6 @@
 
 - (IBAction)removeWithFile:(id)sender;
 - (IBAction)clear:(id)sender;
+- (IBAction)recompress:(id)sender;
 
 @end

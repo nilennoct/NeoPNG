@@ -29,6 +29,12 @@
     // Insert code here to tear down your application
 }
 
+- (void)applicationDidBecomeActive:(NSNotification *)notification {
+    if (!self.window.visible) {
+        [self.window makeKeyAndOrderFront:self];
+    }
+}
+
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag {
     if (!flag) {
         [self.window makeKeyAndOrderFront:self];

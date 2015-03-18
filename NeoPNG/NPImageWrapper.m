@@ -7,6 +7,8 @@
 //
 
 #import "NPImageWrapper.h"
+#import "NPPNGCompressOperation.h"
+#import "NPJPEGCompressOperation.h"
 
 static const NSString *defaultPrefix = @"out/";
 
@@ -82,8 +84,17 @@ static const NSString *defaultPrefix = @"out/";
 }
 
 - (NPCompressOperation *)operation {
-    if (_operation == nil) {
-        _operation = [NPCompressOperation operationWithImage:self];
+    if (!_compressed) {
+        if (_operation != nil && !_operation.finished) {
+            [_operation cancel];
+        }
+
+        if ([[[_filename pathExtension] lowercaseString] isEqualToString:@"jpg"]) {
+            _operation = [NPJPEGCompressOperation operationWithImage:self];
+        }
+        else {
+            _operation = [NPPNGCompressOperation operationWithImage:self];
+        }
     }
 
     return _operation;
@@ -113,7 +124,7 @@ static const NSString *defaultPrefix = @"out/";
             prefix = [prefix stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
         }
 
-        NSString *ouputFilename = [[NSString stringWithFormat:@"%@%@%@", prefix, [_filename stringByDeletingPathExtension], suffix] stringByAppendingPathExtension:@"png"];
+        NSString *ouputFilename = [[NSString stringWithFormat:@"%@%@%@", prefix, [_filename stringByDeletingPathExtension], suffix] stringByAppendingPathExtension:[_filename pathExtension]];
         NSString *outputPath = [[_path stringByDeletingLastPathComponent] stringByAppendingPathComponent:ouputFilename];
 
         _outputURL = [NSURL fileURLWithPath:outputPath];
