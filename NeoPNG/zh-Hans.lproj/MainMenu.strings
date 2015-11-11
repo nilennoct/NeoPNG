@@ -1,0 +1,179 @@
+
+/* Class = "NSMenuItem"; title = "NeoPNG"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "NeoPNG";
+
+/* Class = "NSTextFieldCell"; title = "Reduce"; ObjectID = "1xi-LQ-y9o"; */
+"1xi-LQ-y9o.title" = "减少";
+
+/* Class = "NSToolbarItem"; label = "Remove"; ObjectID = "3Nx-tO-Bje"; */
+"3Nx-tO-Bje.label" = "移除";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Remove"; ObjectID = "3Nx-tO-Bje"; */
+"3Nx-tO-Bje.paletteLabel" = "移除";
+
+/* Class = "NSTextFieldCell"; title = "Size_O"; ObjectID = "43s-aT-gI2"; */
+"43s-aT-gI2.title" = "Size_O";
+
+/* Class = "NSMenuItem"; title = "Quit NeoPNG"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出 NeoPNG";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "编辑";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "5bm-Sy-7Oy"; */
+"5bm-Sy-7Oy.title" = "Text Cell";
+
+/* Class = "NSMenuItem"; title = "About NeoPNG"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "关于 NeoPNG";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "6rx-ob-82H"; */
+"6rx-ob-82H.title" = "窗口";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "设置…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "关闭";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "帮助";
+
+/* Class = "NSMenuItem"; title = "NeoPNG Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "NeoPNG 帮助";
+
+/* Class = "NSTextFieldCell"; title = "Name"; ObjectID = "GNQ-1k-5Gg"; */
+"GNQ-1k-5Gg.title" = "文件名";
+
+/* Class = "NSToolbarItem"; label = "Pref"; ObjectID = "Gpy-KB-lEN"; */
+"Gpy-KB-lEN.label" = "Pref";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Pref"; ObjectID = "Gpy-KB-lEN"; */
+"Gpy-KB-lEN.paletteLabel" = "Pref";
+
+/* Class = "NSTextFieldCell"; title = "Size_N"; ObjectID = "HaB-W3-QUS"; */
+"HaB-W3-QUS.title" = "Size_N";
+
+/* Class = "NSTextFieldCell"; title = "Min:"; ObjectID = "I5P-xH-8lA"; */
+"I5P-xH-8lA.title" = "最低:";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "打开…";
+
+/* Class = "NSMenuItem"; title = "Clear"; ObjectID = "Iw2-Yq-ycQ"; */
+"Iw2-Yq-ycQ.title" = "清除";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "显示全部";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "移到最上层";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "服务";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "最小化";
+
+/* Class = "NSMenuItem"; title = "Hide NeoPNG"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "隐藏 NeoPNG";
+
+/* Class = "NSWindow"; title = "NeoPNG"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "NeoPNG";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "缩放";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "全选";
+
+/* Class = "NSTextFieldCell"; placeholderString = "65"; ObjectID = "SRR-WK-oeM"; */
+"SRR-WK-oeM.placeholderString" = "65";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "窗口";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "隐藏其他";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "编辑";
+
+/* Class = "NSTextFieldCell"; title = "Quality:"; ObjectID = "XCu-9B-028"; */
+"XCu-9B-028.title" = "品质(Q):";
+
+/* Class = "NSTextFieldCell"; placeholderString = "80"; ObjectID = "Ym2-1m-1zW"; */
+"Ym2-1m-1zW.placeholderString" = "80";
+
+/* Class = "NSToolbarItem"; label = "Clear"; ObjectID = "ZxX-b7-Yfm"; */
+"ZxX-b7-Yfm.label" = "清除";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Clear"; ObjectID = "ZxX-b7-Yfm"; */
+"ZxX-b7-Yfm.paletteLabel" = "清除";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "窗口";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "文件";
+
+/* Class = "NSButtonCell"; title = "Overwrite"; ObjectID = "cpL-z8-xqz"; */
+"cpL-z8-xqz.title" = "覆盖原图";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "文件";
+
+/* Class = "NSMenuItem"; title = "Delete with created file"; ObjectID = "gNc-m1-n7b"; */
+"gNc-m1-n7b.title" = "删除压缩图片";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "粘贴";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "服务";
+
+/* Class = "NSToolbarItem"; label = "Add"; ObjectID = "ir8-qN-HIh"; */
+"ir8-qN-HIh.label" = "添加";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Add"; ObjectID = "ir8-qN-HIh"; */
+"ir8-qN-HIh.paletteLabel" = "添加";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "移除";
+
+/* Class = "NSTextFieldCell"; title = "Suffix:"; ObjectID = "rR6-rb-8AJ"; */
+"rR6-rb-8AJ.title" = "后缀:";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "rhJ-um-Xbm"; */
+"rhJ-um-Xbm.title" = "关闭";
+
+/* Class = "NSTextFieldCell"; title = "Filename:"; ObjectID = "t2w-9S-bPN"; */
+"t2w-9S-bPN.title" = "文件名:";
+
+/* Class = "NSMenu"; title = "NeoPNG"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "NeoPNG";
+
+/* Class = "BindingConnection"; ibShadowedIsNilPlaceholder = "out/"; ObjectID = "ubR-YM-IlU"; */
+"ubR-YM-IlU.ibShadowedIsNilPlaceholder" = "out/";
+
+/* Class = "BindingConnection"; ibShadowedNoSelectionPlaceholder = "out/"; ObjectID = "ubR-YM-IlU"; */
+"ubR-YM-IlU.ibShadowedNoSelectionPlaceholder" = "out/";
+
+/* Class = "BindingConnection"; ibShadowedNotApplicablePlaceholder = "out/"; ObjectID = "ubR-YM-IlU"; */
+"ubR-YM-IlU.ibShadowedNotApplicablePlaceholder" = "out/";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "帮助";
+
+/* Class = "NSTextFieldCell"; title = "Max:"; ObjectID = "ws2-0I-7B6"; */
+"ws2-0I-7B6.title" = "最高:";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "复制";
+
+/* Class = "NSTextFieldCell"; title = "Prefix:"; ObjectID = "zqP-Zf-4zf"; */
+"zqP-Zf-4zf.title" = "前缀:";
+
+"EpE-iV-mgx.title" = "检查更新…";

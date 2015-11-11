@@ -10,4 +10,6 @@
 
 @interface NPPreferenceWindowController : NSWindowController <NSControlTextEditingDelegate>
 
+- (void)windowWillDisplay;
+
 @end

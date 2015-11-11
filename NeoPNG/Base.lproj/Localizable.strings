@@ -1,0 +1,15 @@
+/* 
+  main.strings
+  NeoPNG
+
+  Created by Neo He on 6/11/2015.
+  Copyright © 2015 Neo He. All rights reserved.
+*/
+"CompressFailTitle" = "Compression failed.";
+"CompressFailText" = "Maybe the minimum quality is too high. Please reduce the minimum quality and try again.";
+"RemoveTitle" = "Are you sure to delete with compressed images?";
+"RemoveText" = "All compressed images seleted will be deleted.";
+"OK" = "OK";
+"Cancel" = "Cancel";
+"OverwriteConfirmTitle" = "Overwite is enabled";
+"OverwriteConfirmText" = "The original images would be overwriten by compressed ones. Please backup them by yourself before compressing.";

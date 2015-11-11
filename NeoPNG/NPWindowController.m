@@ -31,6 +31,7 @@
 }
 
 - (IBAction)openPreference:(id)sender {
+    [self.preferenceWindowController windowWillDisplay];
     [self.window beginSheet:self.preferenceWindowController.window completionHandler:^(NSModalResponse returnCode) {
     }];
 }

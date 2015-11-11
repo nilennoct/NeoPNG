@@ -19,9 +19,12 @@
 @property NSInteger originalSize;
 @property NSInteger compressedSize;
 
+@property (nonatomic) NSString *quality;
+
 @property (readonly) NSNumber *reduced;
 
 @property BOOL compressed;
+@property BOOL failed;
 
 @property (readonly) NSString *outputPath;
 @property (readonly) NSURL *outputURL;
@@ -32,7 +35,6 @@
 
 - (instancetype)initWithPath:(NSString *)path;
 
-- (void)startTask;
 - (void)taskDidFinished:(NSDictionary *)userInfo;
 
 @end

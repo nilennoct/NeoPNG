@@ -1,0 +1,15 @@
+/* 
+  main.strings
+  NeoPNG
+
+  Created by Neo He on 6/11/2015.
+  Copyright © 2015 Neo He. All rights reserved.
+*/
+"CompressFailTitle" = "压缩失败。";
+"CompressFailText" = "可能是最低品质设置的太高，请调低后重试。";
+"RemoveTitle" = "确定要删除压缩图片？";
+"RemoveText" = "所有选中的压缩图片都将被删除。";
+"OK" = "好";
+"Cancel" = "取消";
+"OverwriteConfirmTitle" = "已启用覆盖原图";
+"OverwriteConfirmText" = "原图将被压缩后的图片覆盖。请在压缩前自行备份。";

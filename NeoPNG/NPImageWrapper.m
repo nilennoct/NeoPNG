@@ -30,57 +30,36 @@ static const NSString *defaultPrefix = @"out/";
     return self;
 }
 
-- (void)startTask {
-    @autoreleasepool {
-            //    NSPipe *pipe = [NSPipe pipe];
-            //    NSFileHandle *file = pipe.fileHandleForReading;
-
-            //    NSString *ext = @".out.png";
-        NSString *outputPath = self.outputPath;
-
-        NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
-        NSInteger qualityMin = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMin"] integerValue];
-        NSInteger qualityMax = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMax"] integerValue];
-        NSString *quality = [NSString stringWithFormat:@"%ld-%ld", qualityMin, qualityMax];
-
-        _task = [[NSTask alloc] init];
-        _task.launchPath = [[NSBundle mainBundle] pathForResource:@"pngquant" ofType:nil];
-        _task.arguments = @[@"--force", @"--quality", quality, @"--out", outputPath, @"--", _path];
-
-        dispatch_queue_t taskQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-        dispatch_async(taskQueue, ^{
-            [_task launch];
-
-            [_task waitUntilExit];
-
-                //        NSData *data = [file readDataToEndOfFile];
-                //        [file closeFile];
-
-                //        NSLog(@"pngquant %@: %@", _path, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSError *error;
-                self.compressedSize = [[NSFileManager defaultManager] attributesOfItemAtPath:outputPath error:&error].fileSize;
-                if (error != nil) {
-                    NSLog(@"Error when reading compressed image size, %@", error);
-                }
-                
-                [self setCompressed:YES];
-                
-            });
-        });
-    }
-}
-
 - (void)taskDidFinished:(NSDictionary *)userInfo {
     [self willChangeValueForKey:@"reduced"];
-    if (userInfo[@"error"]) {
+
+    BOOL hasError = userInfo[@"error"] != nil;
+    if (hasError) {
         NSLog(@"Error when execute compress task, filename: %@, error info: %@", _filename, userInfo[@"error"]);
-        return;
+
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.alertStyle = NSCriticalAlertStyle;
+        alert.messageText = NSLocalizedString(@"CompressFailTitle", @"Compression failed");
+        alert.informativeText = NSLocalizedString(@"CompressFailText", @"Message when compression failed.");
+
+        [alert runModal];
+
+        self.compressedSize = 0;
     }
-    self.compressedSize = [(NSNumber *)userInfo[@"size"] integerValue];
+    else {
+        self.compressedSize = [(NSNumber *)userInfo[@"size"] integerValue];
+    }
+
+    if (hasError != _failed) {
+        self.failed = hasError;
+    }
+
     self.compressed = YES;
     [self didChangeValueForKey:@"reduced"];
+}
+
+- (NSString *)quality {
+    return _quality ? [NSString stringWithFormat:@"(Q=%@)", _quality] : nil;
 }
 
 - (NPCompressOperation *)operation {
@@ -101,7 +80,7 @@ static const NSString *defaultPrefix = @"out/";
 }
 
 - (NSNumber *)reduced {
-    if (!_compressed) {
+    if (!_compressed || _failed) {
         return @(0);
     }
 

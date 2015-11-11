@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5307A7B1BEC45880053B4F4 /* pngquant in Resources */ = {isa = PBXBuildFile; fileRef = B5307A7A1BEC45880053B4F4 /* pngquant */; settings = {ASSET_TAGS = (); }; };
+		B5307A7F1BEC4C7E0053B4F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5307A811BEC4C7E0053B4F4 /* Localizable.strings */; };
+		B55CFBD81BF1D4A600C9D0AC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55CFBCF1BF1D20D00C9D0AC /* Sparkle.framework */; };
+		B55CFBD91BF1D4A600C9D0AC /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B55CFBCF1BF1D20D00C9D0AC /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B55CFBDC1BF1D7CA00C9D0AC /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B55CFBDB1BF1D7CA00C9D0AC /* dsa_pub.pem */; settings = {ASSET_TAGS = (); }; };
 		B565D08C1AB1BE66008CE355 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D08B1AB1BE66008CE355 /* AppDelegate.m */; };
 		B565D08E1AB1BE66008CE355 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D08D1AB1BE66008CE355 /* main.m */; };
 		B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B565D08F1AB1BE66008CE355 /* Images.xcassets */; };
@@ -14,7 +19,6 @@
 		B565D09F1AB1BE66008CE355 /* NeoPNGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D09E1AB1BE66008CE355 /* NeoPNGTests.m */; };
 		B565D0AC1AB1BFD3008CE355 /* NPWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */; };
 		B565D0B01AB1C837008CE355 /* NPImageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0AF1AB1C837008CE355 /* NPImageWrapper.m */; };
-		B565D0B21AB1E064008CE355 /* pngquant in Resources */ = {isa = PBXBuildFile; fileRef = B565D0B11AB1E064008CE355 /* pngquant */; };
 		B565D0B81AB1F86F008CE355 /* NPImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0B71AB1F86F008CE355 /* NPImagesController.m */; };
 		B565D0BB1AB1FBDE008CE355 /* NPImagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B565D0BA1AB1FBDE008CE355 /* NPImagesTableView.m */; };
 		B59464A31AB8605400CCF7C3 /* NPImagesTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59464A21AB8605400CCF7C3 /* NPImagesTableRowView.m */; };
@@ -36,7 +40,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B55CFBD11BF1D29100C9D0AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B55CFBDA1BF1D4A600C9D0AC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B55CFBD91BF1D4A600C9D0AC /* Sparkle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B5307A7A1BEC45880053B4F4 /* pngquant */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngquant; sourceTree = "<group>"; };
+		B5307A801BEC4C7E0053B4F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B5307A841BEC4ECB0053B4F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B55CFBCF1BF1D20D00C9D0AC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		B55CFBD41BF1D39100C9D0AC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
+		B55CFBDB1BF1D7CA00C9D0AC /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		B565D0851AB1BE66008CE355 /* NeoPNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoPNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B565D0891AB1BE66008CE355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B565D08A1AB1BE66008CE355 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,7 +84,6 @@
 		B565D0AB1AB1BFD3008CE355 /* NPWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPWindowController.m; sourceTree = "<group>"; };
 		B565D0AE1AB1C837008CE355 /* NPImageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImageWrapper.h; sourceTree = "<group>"; };
 		B565D0AF1AB1C837008CE355 /* NPImageWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImageWrapper.m; sourceTree = "<group>"; };
-		B565D0B11AB1E064008CE355 /* pngquant */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngquant; sourceTree = "<group>"; };
 		B565D0B61AB1F86F008CE355 /* NPImagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImagesController.h; sourceTree = "<group>"; };
 		B565D0B71AB1F86F008CE355 /* NPImagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NPImagesController.m; sourceTree = "<group>"; };
 		B565D0B91AB1FBDE008CE355 /* NPImagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NPImagesTableView.h; sourceTree = "<group>"; };
@@ -76,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55CFBD81BF1D4A600C9D0AC /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,9 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B55CFBCE1BF1D1E700C9D0AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B55CFBCF1BF1D20D00C9D0AC /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B565D07C1AB1BE66008CE355 = {
 			isa = PBXGroup;
 			children = (
+				B55CFBCE1BF1D1E700C9D0AC /* Frameworks */,
 				B565D0871AB1BE66008CE355 /* NeoPNG */,
 				B565D09B1AB1BE66008CE355 /* NeoPNGTests */,
 				B565D0861AB1BE66008CE355 /* Products */,
@@ -117,7 +159,7 @@
 				B565D08B1AB1BE66008CE355 /* AppDelegate.m */,
 				B565D08F1AB1BE66008CE355 /* Images.xcassets */,
 				B565D0911AB1BE66008CE355 /* MainMenu.xib */,
-				B565D0B11AB1E064008CE355 /* pngquant */,
+				B5307A7A1BEC45880053B4F4 /* pngquant */,
 				B565D0881AB1BE66008CE355 /* Supporting Files */,
 			);
 			path = NeoPNG;
@@ -126,9 +168,11 @@
 		B565D0881AB1BE66008CE355 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B55CFBDB1BF1D7CA00C9D0AC /* dsa_pub.pem */,
 				B565D0891AB1BE66008CE355 /* Info.plist */,
 				B565D08D1AB1BE66008CE355 /* main.m */,
 				B5E9740E1AB66B8A00C4525E /* Credits.rtf */,
+				B5307A811BEC4C7E0053B4F4 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +245,8 @@
 				B565D0811AB1BE66008CE355 /* Sources */,
 				B565D0821AB1BE66008CE355 /* Frameworks */,
 				B565D0831AB1BE66008CE355 /* Resources */,
+				B55CFBD11BF1D29100C9D0AC /* CopyFiles */,
+				B55CFBDA1BF1D4A600C9D0AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,7 +281,7 @@
 		B565D07D1AB1BE66008CE355 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Neo He";
 				TargetAttributes = {
 					B565D0841AB1BE66008CE355 = {
@@ -254,6 +300,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = B565D07C1AB1BE66008CE355;
 			productRefGroup = B565D0861AB1BE66008CE355 /* Products */;
@@ -271,9 +318,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B565D0B21AB1E064008CE355 /* pngquant in Resources */,
+				B5307A7F1BEC4C7E0053B4F4 /* Localizable.strings in Resources */,
+				B55CFBDC1BF1D7CA00C9D0AC /* dsa_pub.pem in Resources */,
 				B5E9740F1AB66B8A00C4525E /* Credits.rtf in Resources */,
 				B565D0901AB1BE66008CE355 /* Images.xcassets in Resources */,
+				B5307A7B1BEC45880053B4F4 /* pngquant in Resources */,
 				B565D0931AB1BE66008CE355 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,10 +375,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		B5307A811BEC4C7E0053B4F4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5307A801BEC4C7E0053B4F4 /* Base */,
+				B5307A841BEC4ECB0053B4F4 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B565D0911AB1BE66008CE355 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B565D0921AB1BE66008CE355 /* Base */,
+				B55CFBD41BF1D39100C9D0AC /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -357,6 +416,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -418,8 +478,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = NeoPNG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nilennoct.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -429,8 +494,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = NeoPNG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nilennoct.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -450,6 +520,7 @@
 				);
 				INFOPLIST_FILE = NeoPNGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nilennoct.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoPNG.app/Contents/MacOS/NeoPNG";
 			};
@@ -466,6 +537,7 @@
 				);
 				INFOPLIST_FILE = NeoPNGTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nilennoct.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoPNG.app/Contents/MacOS/NeoPNG";
 			};

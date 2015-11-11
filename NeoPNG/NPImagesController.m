@@ -107,7 +107,17 @@
 }
 
 - (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row {
-    return [NPImagesTableRowView new];
+    NPImageWrapper *image = [self.arrangedObjects objectAtIndex:row];
+
+    return [[NPImagesTableRowView alloc] initWithImage:image];
+}
+
+- (void)tableView:(NSTableView *)tableView didAddRowView:(NPImagesTableRowView *)rowView forRow:(NSInteger)row {
+    [rowView.image addObserver:rowView forKeyPath:@"failed" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+- (void)tableView:(NSTableView *)tableView didRemoveRowView:(NPImagesTableRowView *)rowView forRow:(NSInteger)row {
+    [rowView.image removeObserver:rowView forKeyPath:@"failed"];
 }
 
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation {
@@ -180,19 +190,15 @@
 }
 
 - (IBAction)removeWithFile:(id)sender {
-    NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
-    BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
-    if (overwrite) {
-        NSAlert *alert = [NSAlert new];
-        [alert addButtonWithTitle:@"OK"];
-        [alert addButtonWithTitle:@"Cancel"];
-        [alert setMessageText:@"Delete these images?"];
-        [alert setInformativeText:@"For overwriting is enabled, your original images will be deleted."];
-        alert.alertStyle = NSCriticalAlertStyle;
+    NSAlert *alert = [NSAlert new];
+    alert.alertStyle = NSCriticalAlertStyle;
+    [alert addButtonWithTitle:NSLocalizedString(@"OK", @"OK")];
+    [alert addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
+    [alert setMessageText:NSLocalizedString(@"RemoveTitle", @"Delete these files?")];
+    [alert setInformativeText:NSLocalizedString(@"RemoveText", @"The compressed files will be deleted.")];
 
-        if ([alert runModal] != NSAlertFirstButtonReturn) {
-            return;
-        }
+    if ([alert runModal] != NSAlertFirstButtonReturn) {
+        return;
     }
 
     [self removeWithFile];

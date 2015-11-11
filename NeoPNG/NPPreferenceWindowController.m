@@ -10,6 +10,7 @@
 
 @interface NPPreferenceWindowController () {
     NSNumberFormatter *_formatter;
+    BOOL _originalOverwite;
 }
 
 @end
@@ -29,20 +30,25 @@
 //    [self dismissController:sender];
 //}
 
+-(void)windowWillDisplay {
+    NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
+
+    _originalOverwite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
+}
+
 - (IBAction)dismissController:(id)sender {
     [self.window makeFirstResponder:nil];
 
     NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
 
-//    BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
-//    if (!overwrite) {
-//        NSString *prefix = [defaultsController.values valueForKey:@"Prefix"];
-//        NSString *suffix = [defaultsController.values valueForKey:@"Suffix"];
-//        if ((!prefix || prefix.length == 0) && (!suffix || suffix.length == 0)) {
-//            [self.window makeFirstResponder:[self.window.contentView viewWithTag:1]];
-//            return;
-//        }
-//    }
+    BOOL overwrite = [(NSNumber *)[defaultsController.values valueForKey:@"Overwrite"] boolValue];
+    if (overwrite && !_originalOverwite) {
+        NSAlert *alert = [NSAlert new];
+        alert.alertStyle = NSCriticalAlertStyle;
+        [alert setMessageText:NSLocalizedString(@"OverwriteConfirmTitle", nil)];
+        [alert setInformativeText:NSLocalizedString(@"OverwriteConfirmText", nil)];
+        [alert runModal];
+    }
 
     NSInteger qualityMin = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMin"] integerValue];
     NSInteger qualityMax = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMax"] integerValue];

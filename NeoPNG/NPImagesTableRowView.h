@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NPImageWrapper.h"
 
 @interface NPImagesTableRowView : NSTableRowView
+
+@property NPImageWrapper *image;
+
+- (instancetype)initWithImage:(NPImageWrapper *)image;
 
 @end
