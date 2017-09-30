@@ -14,12 +14,12 @@
 - (void)main {
 //    NSData *imageData = [NSData dataWithContentsOfFile:self.image.path];
     NSImage *image = [[NSImage alloc] initWithContentsOfFile:self.image.path];
-    NSBitmapImageRep *imageRep = [image representations][0];
+    NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithData: [image TIFFRepresentation]];
 
     NSUserDefaultsController *defaultsController = [NSUserDefaultsController sharedUserDefaultsController];
     NSInteger qualityMax = [(NSNumber *)[defaultsController.values valueForKey:@"QualityMax"] integerValue];
 
-    NSData *imageDataCompressed = [imageRep representationUsingType:NSJPEGFileType properties:@{NSImageCompressionFactor: @(qualityMax / 100.0)}];
+    NSData *imageDataCompressed = [imageRep representationUsingType:NSJPEGFileType properties:@{NSImageCompressionFactor: @(qualityMax / 100.0), NSImageProgressive: @(NO)}];
 
     NSString *outputPath = self.image.outputPath;
     [[NSFileManager defaultManager] createFileAtPath:outputPath contents:imageDataCompressed attributes:nil];
